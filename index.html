@@ -1,3 +1,11 @@
+<!-- 1. (async function to fetch(get) data from the API) a list of names, dates, times, locations, & descriptions of all the parties that are happening -->
+<!-- 2. (button added in HTML doc) we want a delete button attached to every party list to remove that party from the list -->
+<!-- 3. (async function to delete data from the API) write a function to request to remove the party from the list -->
+<!-- 4. (eventListener to handle removal) then the party is removed from the list -->
+<!-- 5. (form added in HTML doc) a form for users to fill out with new party info -->
+<!-- 6. (async function to post(add) data to the API) then the new party info is added to the list -->
+    <!-- 6a. create a querySelector.addListenerEvent to render function -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,12 +16,23 @@
     <link rel="stylesheet" href="index.css"/>
 </head>
 <body>
-    <!-- 1. (async function to fetch(get) data from the API) a list of names, dates, times, locations, & descriptions of all the parties that are happening -->
-    <!-- 2. (button added in HTML doc) we want a delete button attached to every party list to remove that party from the list -->
-    <!-- 3. (async function to delete data from the API) write a function to request to remove the party from the list -->
-    <!-- 4. (eventListener to handle removal) then the party is removed from the list -->
-    <!-- 5. (form added in HTML doc) a form for users to fill out with new party info -->
-    <!-- 6. (async function to post(add) data to the API) then the new party info is added to the list -->
-        <!-- 6a. create a querySelector.addListenerEvent to render function -->
+    <div id="root"></div>
+        <output></output>
+        <!-- <button id="delete"> Delete Party Info</button> -->
+    <h1>Fill Out the Form Below to Add Your Party Details to the List!</h1>
+    <form>
+        <label>
+            Name:
+            <input id="name" name="name" type="text"/>
+            Date:
+            <input id="date" name="date" type="text"/>
+            Time:
+            <input id="time" name="time" type="text"/>
+            Location:
+            <input id="location" name="location" type="text"/>
+            Details:
+            <input id="details" name="details" type="text"/>
+        </label>
+    </form>
 </body>
 </html> 
