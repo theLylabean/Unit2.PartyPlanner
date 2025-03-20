@@ -25,4 +25,4 @@
 2. do you need to make a class or an id for the delete buttons? --probably a class
 3. how do you want to style the body of the page? --oooo pretty colors!
 4. will you be styling anything else? div's? do you want to do that dynamically in js or html or in css? what would be easier to do? will you need to do a combo for adding styling?
- -->
+ --> 
