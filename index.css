@@ -3,3 +3,79 @@
 2. do you need to make a class or an id for the delete buttons? --probably a class
 3. how do you want to style the body of the page? --oooo pretty colors!
 4. will you be styling anything else? div's? do you want to do that dynamically in js or html or in css? what would be easier to do? will you need to do a combo for adding styling? */
+
+#root {
+    top: 10%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+      /* grid-gap: 2em;
+      color: #fff;
+      font: 200 1.75em poppins;
+      text-shadow: 1px 1px 2px; */
+    justify-items: center;
+}
+
+#partyList {
+    display: block;
+    text-align: center;
+}
+
+#label {
+    display: flex;
+    flex-direction: column;
+}
+
+#userAdd {
+    display: block;
+    text-align: center;
+}
+
+#form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card {
+    width: 200px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    position: relative;
+    border: solid 4px skyblue;
+    border-radius: 1em;
+    font: 200 1.2rem;
+    text-shadow: 1px 1px 2px;
+    background: rgb(255, 119, 85);
+    padding: 1em;
+    margin: 2em;
+}
+
+.getInfo {
+    position: relative;
+    padding: 15px 25px;
+    font-size: 1.25rem;
+    color: rgb(255, 255, 255);
+    background: skyblue;
+    border: none;
+    border-radius: 10px;
+}
+
+.single {
+    position: fixed;
+    top: 30%;
+    left: 35%;
+    height: auto;
+    width: auto;
+    padding: 20px;
+}
+.single * {
+    margin: 10px;
+} */
+
+.single > img {
+    height: 200px;
+    width: auto;
+}

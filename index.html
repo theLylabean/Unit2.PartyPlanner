@@ -16,23 +16,24 @@
     <link rel="stylesheet" href="index.css"/>
 </head>
 <body>
-    <div id="root"></div>
+    <div id="root">
+        <h1 id="partyList">Let's Get This Party Started!</h1>
+    </div>
+    <!-- <button id="delete"> Delete Party Info</button> -->
         <output></output>
-        <!-- <button id="delete"> Delete Party Info</button> -->
-    <h1>Fill Out the Form Below to Add Your Party Details to the List!</h1>
-    <form>
-        <label>
+    <h1 id="userAdd">Fill Out the Form Below to Add Your Party Details to the List!</h1>
+    <form id="form">
+        <label id="label">
             Name:
-            <input id="name" name="name" type="text"/>
+            <input id="name" name="name" type="text" autocomplete="off"/>
             Date:
-            <input id="date" name="date" type="text"/>
-            Time:
-            <input id="time" name="time" type="text"/>
+            <input id="date" name="date" type="text" autocomplete="off"/>
             Location:
-            <input id="location" name="location" type="text"/>
+            <input id="location" name="location" type="text" autocomplete="off"/>
             Details:
-            <input id="details" name="details" type="text"/>
+            <input id="details" name="details" type="text" autocomplete="off"/>
         </label>
+        <button id="submit"> Submit </button>
     </form>
 </body>
 </html> 
