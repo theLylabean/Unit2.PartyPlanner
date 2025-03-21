@@ -1,14 +1,18 @@
 /* Thoughts:
-1. how do you want the party information to show up on the website? card? table? --probably not.
-2. do you need to make a class or an id for the delete buttons? --probably a class
-3. how do you want to style the body of the page? --oooo pretty colors!
-4. will you be styling anything else? div's? do you want to do that dynamically in js or html or in css? what would be easier to do? will you need to do a combo for adding styling? */
+✅1. how do you want the party information to show up on the website? card? table? --probably not.
+✅2. do you need to make a class or an id for the delete buttons? --probably a class
+✅3. how do you want to style the body of the page? --oooo pretty colors!
+✅4. will you be styling anything else? div's? do you want to do that dynamically in js or html or in css? what would be easier to do? will you need to do a combo for adding styling? */
+
+HTML {
+    background: lightcoral;
+    font-family: "Varela Round", sans-serif;
+}
 
 #root {
     top: 10%;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-
       /* grid-gap: 2em;
       color: #fff;
       font: 200 1.75em poppins;
@@ -16,14 +20,27 @@
     justify-items: center;
 }
 
-#partyList {
+.heading3 {
     display: block;
     text-align: center;
+}
+
+#partyList {
+    display: flex;
+    justify-content: center;
 }
 
 #label {
     display: flex;
     flex-direction: column;
+    width: 1000px;
+    height: auto;
+    text-align: center;
+    align-items: center;
+    position: relative;
+    border: solid 4px skyblue;
+    border-radius: 1em;
+    font: 200 1.2rem;
 }
 
 #userAdd {
@@ -49,7 +66,7 @@
     border-radius: 1em;
     font: 200 1.2rem;
     text-shadow: 1px 1px 2px;
-    background: rgb(255, 119, 85);
+    background: rgb(230, 230, 230);
     padding: 1em;
     margin: 2em;
 }
@@ -62,21 +79,46 @@
     background: skyblue;
     border: none;
     border-radius: 10px;
+    font-family: "Varela Round", sans-serif;
 }
 
 .single {
     position: fixed;
     top: 30%;
-    left: 35%;
+    left: 40%;
     height: auto;
     width: auto;
     padding: 20px;
 }
 .single * {
     margin: 10px;
-} */
+}
 
 /* .single > img {
     height: 200px;
     width: auto;
 } */
+
+/* .input {
+    width: 200px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    position: relative;
+    border: solid 4px skyblue;
+    border-radius: 1em;
+    font: 20px;
+    font-family: M PLUS Rounded 1c
+    Static
+    ;
+} */
+
+.hide {
+    display: none !important;
+}
+
+.show {
+    display: flex;
+}

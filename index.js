@@ -3,17 +3,19 @@
 ✅2. add the api in a variable
 ✅3. select the root div and store in a variable
 ✅4. target the form from the HTML and store it in a variable or create it dynamically in js
-4a. if creating dynamically, add an eventListener('DOMContentLoaded' before the init function (which will be inside the {} of the eventListener))
+❌4a. if creating dynamically, add an eventListener('DOMContentLoaded' before the init function (which will be inside the {} of the eventListener)) --didn't need this.
 ✅5. create a render function
-5a. inside the render function add:
-    ❌1. an eventListener to 'Get Info' that calls 'getSingleEvent' --stupid. didn't need it.
+✅5a. inside the render function add:
+    ❌1. an eventListener to 'Get Info' that calls 'getSingleEvent' --didn't need it.
     ✅2. create a detailed Event View with a 'Go Back' button
-    3. add an eventListener to 'Go Back' to re-render the events from state
-    4. add a 'Delete Party Info' button to each Event
-❌6. create 2 async functions to fetch all events and a single event -- this was stupid. didn't need it.
-7. create a button for each party in the list
-8. create an eventListener that is attached to each delete button
-9. create an eventListener for the form to add new parties to the list
+    ✅3. add an eventListener to 'Go Back' to re-render the events from state
+    ✅4. add a 'Delete' button to each Event
+❌6. create 2 async functions to fetch all events and a single event --didn't need it.
+✅7. create a details, go back, and delete button for each card in the list
+✅8. create an eventListener that is attached to each delete button
+✅8a. create a function to delete the card
+✅9. create an eventListener for the form to add new parties to the list
+✅9a. create a function to add to the state and render on the page
  */
 
 // Step 2:
@@ -28,7 +30,11 @@ const state = {
 // Step 3:
 const root = document.querySelector('#root');
 const submitButton = document.querySelector('#submit')
+const form = document.querySelector('form');
+const heading1 = document.querySelector('#partyList')
+const heading2 = document.querySelector('#userAdd')
 
+// Step 8a:
 const deleteEvent = async (eventId) => {
     const res = await fetch(`${baseUrl}/${eventId}`, {
         method: 'DELETE'
@@ -36,17 +42,22 @@ const deleteEvent = async (eventId) => {
     getEvents()
 }
 
-// Step 5:
+// Step 5, 5a-4, & 7:
 const render = (content) => {
     root.innerHTML = ''
+    form.classList.remove('hide')
+    heading1.classList.remove('hide')
+    heading2.classList.remove('hide')
     if(Array.isArray(content)){
         content.forEach((events) => {
             const card = document.createElement('div')
-            card.classList.add('card')
+            card.classList.add('card', 'show')
+            card.classList.remove('hide')
             card.innerHTML = `
             <h1>${events.name}</h1>
             <button class='getInfo' data-url='${events.id}'> Get Info </button>
-            <button class='deleteInfo' id='delete'> Delete Info </button>
+            <br>
+            <button class='getInfo' id='delete'> Delete Info </button>
             `
             root.appendChild(card);
 
@@ -69,8 +80,14 @@ const render = (content) => {
 });
 
     } else {
-        // Step 5a-2:
+        // Step 5a-2 & 5a-4:
+        const heading3 = document.createElement('h1')
+        heading3.innerHTML = 'Party Information'
+        heading3.classList.add('heading3')
+        form.classList.add('hide')
         const card = document.createElement('div')
+        heading1.classList.add('hide')
+        heading2.classList.add('hide')
         card.classList.add('card', 'single')
         card.innerHTML = `
         <h1>${content.name}</h1>
@@ -78,12 +95,16 @@ const render = (content) => {
         <p>${content.location}</p>
         <p>${content.description}</p>
         <button class='getInfo' id='goBack'> Go Back </button>
-        <button class='deleteInfo' id='delete'> Delete Info </button>
+        <br>
+        <button class='getInfo' id='delete'> Delete Info </button>
         `
-        root.replaceChildren(card)
+        document.querySelector('body').append(heading3)
+        root.append(card)
 
+// Step 5a-3:
         document.querySelector('#goBack').addEventListener('click', () => render(state.events))
 
+// Step 8:
         document.querySelector('#delete').addEventListener('click', () => deleteEvent(content.id))
     }
 }
@@ -120,6 +141,7 @@ getEvents()
 // }
 // getSingleEvent()
 
+// Step 9a:
 const addEvent = async(eventInfo) => {
     const res = await fetch (baseUrl, {
         method: 'POST',
@@ -131,8 +153,8 @@ const addEvent = async(eventInfo) => {
     getEvents()
 }
 
-// Step 4:
-const form = document.querySelector('form');
+// Step 4 & 9:
+
 form.addEventListener('submit', (event) => {
     event.preventDefault();
     console.log(form.name.value)
